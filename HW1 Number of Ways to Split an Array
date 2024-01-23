@@ -1,0 +1,14 @@
+    public int waysToSplitArray(int[] nums) {
+        long total=0; //the sum of all number in the array
+        long split=0; //this will act as the sum of numbers in the splits we check
+        int x=0; //this will be the answer
+        for(int i=0; i<nums.length;i++){ 
+            total += nums[i];
+        }
+        for(int i=0;i<nums.length-1;i++){ //exclude the last number in the vector
+            split += nums[i];
+            if(split >= total-split)
+                x++;
+        }
+        return x;
+    }
